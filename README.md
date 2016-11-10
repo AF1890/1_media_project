@@ -2,9 +2,9 @@
 
 =========================
 
-> Les points 11/12/13 peuvent être réalisé dans l'ordre que tu le souhaite.  
+> Les points 11/12/13 peuvent être réalisés dans l'ordre que tu le souhaites.  
 > Une fois le mini-projet terminé, connecte toi à github avec tes identifiants.
-> Cré un repository, nomme le avec ton prénom, et selectinne le Owner "wcsfontainebleau".  
+> Créé un repository, nomme le avec ton prénom, et selectionne le Owner "wcsfontainebleau".  
 > Dépose le travail que tu as effectué sur github  
 > Redige un mini readme  
 
@@ -23,7 +23,7 @@
 	- support, type string, lenght 255, non null
 ```
 
-#### 4. Créer les actions permettant de voir, créer, editer, et supprimer un Album.
+#### 4. Créer les actions permettant de voir, créer, éditer, et supprimer un Album.
 La page index doit etre consultable avec le path "/".  
 `Exemple: http://localhost/name_project/web/app_dev.php/`
 
@@ -43,7 +43,7 @@ La page index doit etre consultable avec le path "/".
 
 #### 8. Faire une relation oneToMany afin de pouvoir associer des commentaires à un album
  
-#### 9. Nous devons pouvoir créer un commentaire et le supprimer, pas de methode d'édit.
+#### 9. Nous devons pouvoir créer un commentaire et le supprimer, pas de méthode d'édit.
 
 #### 10. L'utilisateur doit avoir la possibilité de ne pas renseigner son nom d'utilisateur, si c'est le cas, ce dernier sera enregistré automatiquement avec la valeur "Anonyme".
 
