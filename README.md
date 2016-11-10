@@ -2,13 +2,9 @@
 
 =========================
 
-> Les points 11/12/13 peuvent etre réalisé dans l'ordre que tu le souhaite.  
-> Une fois le mini-projet terminé, connecte toi à github avec ces identifiants:  
-
->> Login : WCS-Fontainebleau  
->> Password : bleau2016  
-
-> Cré un repository et nomme le avec ton prénom.  
+> Les points 11/12/13 peuvent être réalisé dans l'ordre que tu le souhaite.  
+> Une fois le mini-projet terminé, connecte toi à github avec tes identifiants:  
+> Cré un repository, nomme le avec ton prénom, et selectinne le Owner "wcsfontainebleau".  
 > Dépose le travail que tu as effectué sur github  
 > Redige un mini readme  
 
