@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titrealbum</th>
+                <td>{{ album.titreAlbum }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+            <tr>
+                <th>Utilisateur</th>
+                <th>Commentaire</th>
+            </tr>
+            <tr>
+                {% for commentaires in album.commentaires %}
+                <tr>
+                    <td>{{ commentaires.utilisateur }}</td>
+                    <td>{{ commentaires.commentaire }}</td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_edit', { 'id': album.id }) }}">Editer l'album</a>
+        </li>
+        <li>
+            <a href="{{ path('_index') }}">Retourner à la liste des articles</a>
+        </li>
+        <li>
+            <a href="{{ path('commentaire_new', { 'id': album.id }) }}">Ajouter un commentaire</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer l'album">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

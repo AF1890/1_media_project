@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter un commentaire pour l'album</h1>
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-2">
+            Album à commenter
+        </div>
+        <div class="col-md-7">
+            {{ form_widget(form.album) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Utilisateur
+        </div>
+        <div class="col-md-7">
+            {{ form_widget(form.utilisateur) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Commentaire
+        </div>
+        <div class="col-md-7">
+            {{ form_errors(form.commentaire) }}
+            {{ form_widget(form.commentaire) }}
+        </div>
+    </div>
+    <input type="submit" value="Ajouter un commentaire" />
+    {{ form_end(form) }}
+{% endblock %}

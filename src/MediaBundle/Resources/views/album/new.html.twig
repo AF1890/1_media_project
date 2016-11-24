@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter un nouvel album</h1>
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-2">
+            Titre de l'album
+        </div>
+        <div class="col-md-7">
+            {{ form_errors(form.titreAlbum) }}
+            {{ form_widget(form.titreAlbum) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Artiste
+        </div>
+        <div class="col-md-7">
+            {{ form_errors(form.artiste) }}
+            {{ form_widget(form.artiste) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Genre
+        </div>
+        <div class="col-md-7">
+            {{ form_errors(form.genre) }}
+            {{ form_widget(form.genre) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Support
+        </div>
+        <div class="col-md-7">
+            {{ form_errors(form.support) }}
+            {{ form_widget(form.support) }}
+        </div>
+    </div>
+    <div class="row">
+        <input  class="col-md-offset-1 col-md-2" type="submit" value="Ajouter l'album" />
+    </div>
+    {{ form_end(form) }}
+    <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+            <a href="{{ path('_index') }}" class="btn btn-info" role="button">Retour à la liste des albums</a>
+        </div>
+    </div>
+{% endblock %}

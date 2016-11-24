@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editer l'album/h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Editer" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('_index') }}">Retourner à la liste des albums</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer l'album">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

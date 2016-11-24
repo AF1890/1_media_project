@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AvisType extends AbstractType
+class CommentaireType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,23 +14,20 @@ class AvisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', 'text', array(
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => "Si non renseigné, anonyme"
-                )
-            ))
-            ->add('commentaire', 'textarea', array(
-                'attr' => array('class' => 'materialize-textarea')
-            ));
+            ->add('utilisateur', 'text', array(
+                'required'    => false,
+                'empty_data'  => 'Anonyme'))
+            ->add('commentaire')
+            ->add('album');
     }
+    
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MediaBundle\Entity\Avis'
+            'data_class' => 'MediaBundle\Entity\Commentaire'
         ));
     }
 
@@ -39,7 +36,7 @@ class AvisType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mediabundle_avis';
+        return 'mediabundle_commentaire';
     }
 
 

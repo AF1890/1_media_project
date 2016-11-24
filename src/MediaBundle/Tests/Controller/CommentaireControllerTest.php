@@ -4,7 +4,7 @@ namespace MediaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AvisControllerTest extends WebTestCase
+class CommentaireControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class AvisControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/avis/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /avis/");
+        $crawler = $client->request('GET', '/commentaire/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /commentaire/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'mediabundle_avis[field_name]'  => 'Test',
+            'mediabundle_commentaire[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class AvisControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'mediabundle_avis[field_name]'  => 'Foo',
+            'mediabundle_commentaire[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

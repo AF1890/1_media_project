@@ -1,6 +1,0 @@
-MediaBundle\Entity\Musique:
-    properties:
-        file:
-            - Image:
-                mimeTypes: [image/*]
-                mimeTypesMessage: Merci d'uploader une image valide

@@ -5,10 +5,15 @@ namespace MediaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Avis
+ * Commentaire
  */
-class Avis
+class Commentaire
 {
+    public function __toString()
+    {
+        return strval($this->getCommentaire());
+    }
+
     /**
      * @var int
      */
@@ -17,7 +22,7 @@ class Avis
     /**
      * @var string
      */
-    private $user;
+    private $utilisateur;
 
     /**
      * @var string
@@ -36,33 +41,33 @@ class Avis
     }
 
     /**
-     * Set user
+     * Set utilisateur
      *
-     * @param string $user
-     * @return Avis
+     * @param string $utilisateur
+     * @return Commentaire
      */
-    public function setUser($user)
+    public function setUtilisateur($utilisateur)
     {
-        $this->user = $user;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get utilisateur
      *
      * @return string 
      */
-    public function getUser()
+    public function getUtilisateur()
     {
-        return $this->user;
+        return $this->utilisateur;
     }
 
     /**
      * Set commentaire
      *
      * @param string $commentaire
-     * @return Avis
+     * @return Commentaire
      */
     public function setCommentaire($commentaire)
     {
@@ -81,32 +86,31 @@ class Avis
         return $this->commentaire;
     }
     /**
-     * @var \MediaBundle\Entity\Musique
+     * @var \MediaBundle\Entity\Album
      */
-    private $musiques;
+    private $album;
 
 
     /**
-     * Set musiques
+     * Set album
      *
-     * @param \MediaBundle\Entity\Musique $musiques
-     *
-     * @return Avis
+     * @param \MediaBundle\Entity\Album $album
+     * @return Commentaire
      */
-    public function setMusiques(\MediaBundle\Entity\Musique $musiques = null)
+    public function setAlbum(\MediaBundle\Entity\Album $album = null)
     {
-        $this->musiques = $musiques;
+        $this->album = $album;
 
         return $this;
     }
 
     /**
-     * Get musiques
+     * Get album
      *
-     * @return \MediaBundle\Entity\Musique
+     * @return \MediaBundle\Entity\Album 
      */
-    public function getMusiques()
+    public function getAlbum()
     {
-        return $this->musiques;
+        return $this->album;
     }
 }
