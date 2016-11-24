@@ -1,3 +1,23 @@
+# Contenu du dépot
+
+Une branche par élèves par projet  
+La branche master contient la correction  
+Version: Symfony 2.8
+
+#### Pré-requis
+1. [Composer](https://getcomposer.org/)
+2. Serveur local  
+	* Apache  
+	* Serveur symfony: php appp/console server:run
+
+#### Process install
+```
+composer install
+php app/console doctrine:database:create
+php app/cosnole doctrine:schema:update --force
+php app/console assets:install
+```
+
 # Enoncé:
 
 =========================
