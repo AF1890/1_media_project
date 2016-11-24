@@ -1,0 +1,31 @@
+mediaBundle\Entity\Album:
+    type: entity
+    table: null
+    repositoryClass: mediaBundle\Repository\AlbumRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titreAlbum:
+            type: string
+            length: 255
+            column: titre_album
+        artiste:
+            type: string
+            length: 255
+            unique: true
+        genre:
+            type: string
+            length: 255
+        support:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+
+    oneToMany:
+        children:
+            targetEntity: mediaBundle\Entity\Commentaire
+            mappedBy: id

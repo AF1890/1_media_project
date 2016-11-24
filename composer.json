@@ -1,5 +1,5 @@
 {
-    "name": "florian/exam_1",
+    "name": "bruno/media_project",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -51,7 +51,6 @@
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": null
+        }
     }
 }

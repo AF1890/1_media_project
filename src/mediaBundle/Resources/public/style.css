@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+    .index {
+        background-color: #C1C1C1;
+        height: 100% !important;
+        width: 100%;
+        color: white;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+    th {
+        padding: 1em;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .new {
+        margin: 1em;
+    }
+    td {
+        padding: 1em;
+    }
+
+    #new {
+        font-size: 2em;
+    }

@@ -1,3 +1,7 @@
-media_musique:
-    resource: "@MediaBundle/Resources/config/routing/musique.yml"
+media_album:
+    resource: "@mediaBundle/Resources/config/routing/album.yml"
     prefix:   /
+
+media_commentaire:
+    resource: "@mediaBundle/Resources/config/routing/commentaire.yml"
+    prefix:   /commentaire
