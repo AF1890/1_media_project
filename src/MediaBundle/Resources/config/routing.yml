@@ -1,3 +1,0 @@
-media_musique:
-    resource: "@MediaBundle/Resources/config/routing/musique.yml"
-    prefix:   /

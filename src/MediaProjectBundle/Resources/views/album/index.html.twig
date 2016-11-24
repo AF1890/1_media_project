@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container admin">
+    <h1>Albums list</h1>
+
+    <table class="responsive-table bordered striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre de l'album</th>
+                <th>Artiste</th>
+                <th>Genre</th>
+                <th>Support</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
+            <tr>
+                <td><a href="{{ path('album_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
+                <td>{{ album.titreAlbum }}</td>
+                <td>{{ album.artiste }}</td>
+                <td>{{ album.genre }}</td>
+                <td>{{ album.support }}</td>
+                <td>
+
+                <td>
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-1" href="{{ path('album_show', { 'id': album.id }) }}">
+                        <i class="small material-icons">menu</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-1" href="{{ path('album_edit', { 'id': album.id }) }}">
+                        <i class="small material-icons">mode_edit</i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div class="row center">
+        <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('album_new') }}">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+MediaProjectBundle\Entity\Commentaire:
+    type: entity
+    table: null
+    repositoryClass: MediaProjectBundle\Repository\CommentaireRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        utilisateur:
+            type: string
+            length: 255
+        commentaire:
+            type: text
+
+    lifecycleCallbacks: {  }

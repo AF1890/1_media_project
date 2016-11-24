@@ -1,0 +1,162 @@
+/*FOOTER*/
+
+footer.page-footer{
+    background-color: RGBA(255,255,255,0.6);
+    margin-bottom:0px;
+	padding-top: 0px;
+}
+.footer-copyright {
+    background-color: transparent !important;
+    text-align: center;
+}
+
+footer.page-footer .footer-copyright{
+    color:RGBA(87, 73, 73, 0.8);
+}
+
+
+.h5footer{
+    font: $font-titre;
+    color:#724399;
+}
+
+.doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter{
+    font: $font-titre;
+}
+
+
+/* MEDIA-QUERIES */
+
+@media screen and (min-width:1024px){
+    .doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter{
+        font-size:27px!important;
+    }
+    .h5footer{
+        font-size:33px;
+    }
+}
+
+@media screen and (max-width:980px){
+    .doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter{
+        font-size:27px!important;
+    }
+    .h5footer{
+        font-size:33px;
+    }
+    .responsive-img{
+        width: 75%;
+    }
+    .social{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:740px) {
+    .doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter {
+        font-size: 25px !important;
+    }
+    .h5footer {
+        font-size: 30px;
+    }
+    .responsive-img {
+        width: 30%;
+        min-width: 50px;
+    }
+    .social {
+        width: 100%;
+    }
+    footer.page-footer .footer-copyright {
+        line-height: 20px;
+    }
+    a.back-to-top {
+        bottom: 50px !important;
+    }
+}
+
+@media screen and (max-width:480px){
+    .doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter{
+        font-size:25px!important;
+    }
+    .h5footer{
+        font-size:30px;
+    }
+    .responsive-img{
+        width: 30%;
+        min-width: 50px;
+    }
+    .social{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:320px){
+    .doudousFooter, .bijouxFooter, .accessoiresFooter, .whoamiFooter, .contactmeFooter{
+        font-size:25px!important;
+    }
+    .h5footer{
+        font-size:30px;
+    }
+    .responsive-img{
+        width: 30%;
+        min-width: 50px;
+    }
+    .social{
+        width: 100%;
+    }
+}
+
+/* FIN MEDIA-QUERIES */
+
+
+.doudousFooter{
+    color: #E93255;
+    //font: $font-body;
+    //font-size: 25px;
+}
+
+
+.bijouxFooter {
+    color: RGB(206,76,154);
+    //font: $font-body;
+    //font-size: 25px;
+}
+
+.accessoiresFooter {
+    color: #468540;
+    //font: $font-body;
+    //font-size: 25px;
+}
+
+.whoamiFooter {
+    color:#B7483F;
+    //font: $font-body;
+    //font-size: 25px;
+}
+
+.contactmeFooter {
+    color:#3FBFC1;
+    //font: $font-body;
+    //font-size: 25px;
+}
+
+/* FIN FOOTER */
+
+
+/* RETOUR EN HAUT */
+
+a.back-to-top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: url("../images/noun2.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+/* FIN RETOUR EN HAUT */

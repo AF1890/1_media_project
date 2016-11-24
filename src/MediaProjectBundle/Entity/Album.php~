@@ -1,0 +1,13 @@
+<?php
+
+namespace MediaProjectBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Album
+ */
+class Album
+{
+
+}

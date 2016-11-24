@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container admin">
+    <h1>Modifier Album</h1>
+
+    {{ form_start(edit_form) }}
+
+        <div class=""row input-field">
+            {{ form_label(edit_form.titreAlbum) }}
+            {{ form_widget(edit_form.titreAlbum) }}
+            {{ form_errors(edit_form.titreAlbum) }}
+        </div>
+
+        <div class=""row input-field">
+        {{ form_label(edit_form.artiste) }}
+        {{ form_widget(edit_form.artiste) }}
+        {{ form_errors(edit_form.artiste) }}
+        </div>
+
+        <div class=""row input-field">
+        {{ form_label(edit_form.genre) }}
+        {{ form_widget(edit_form.genre) }}
+        {{ form_errors(edit_form.genre) }}
+        </div>
+
+        <div class=""row input-field">
+        {{ form_label(edit_form.support) }}
+        {{ form_widget(edit_form.support) }}
+        {{ form_errors(edit_form.support) }}
+        </div>
+
+
+    <div class="row center">
+        <button class="btn-floating btn-large waves-effect waves-light green darken-1" type="submit" title="Valider"><i class="material-icons">check</i></button>
+    </div>
+    <div class="row center">
+         {#index#}
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1" href="{{ path('album_index', { 'id': album.id }) }}">
+            <i class="small material-icons">fast_rewind</i>
+        </a>
+         {#Supprimer#}
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1" href="{{ path('album_delete', { 'id': album.id }) }}">
+            <i class="small material-icons">delete</i>
+        </a>
+    </div>
+</div>
+{% endblock %}

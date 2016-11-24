@@ -2,32 +2,38 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Media Project{% endblock %}</title>
-
+        <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            <link href="{{ asset('favicon.ico')}}" rel="icon" type="image/x-icon" />
             <!-- Compiled and minified CSS -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+            <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.css">
+            <link rel="stylesheet" type="text/css" href="{{ asset ('bundles/mediaproject/stylesheets/main.css') }}"/>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link rel="stylesheet" href="{{ asset('bundles/media/css/main.css') }}">
-        {% endblock %}
+            <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+            <!-- <link href="http://www.fontspace.com/david-kerkhoff/dk-butterfly-ball?text=" rel="stylesheet"> -->
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+            <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{ path('musique_index') }}" class="brand-logo center">Homepage</a>
-            </div>
-        </nav>
         {% block body %}{% endblock %}
 
+
+
+
         {% block javascripts %}
-            {# Call jQuery #}
-            <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+            <!--  Scripts-->
             <!-- Compiled and minified JavaScript -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-            <script src="{{ asset('bundles/media/js/main.js') }}"></script>
+            <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <script src="{{ asset ('bundles/mediaproject/js/materialize.js') }}"></script>
+            <script src="{{ asset ('bundles/mediaproject/js/modernizr.custom.js') }}"></script>
+            <script src="{{ asset ('bundles/mediaproject/js/media.js') }}"></script>
+
+
         {% endblock %}
     </body>
 </html>

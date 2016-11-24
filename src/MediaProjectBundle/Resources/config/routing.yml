@@ -1,0 +1,11 @@
+media_project_album:
+    resource: "@MediaProjectBundle/Resources/config/routing/album.yml"
+    prefix:   /album
+
+media_project_commentaire:
+        resource: "@MediaProjectBundle/Resources/config/routing/commentaire.yml"
+        prefix:   /commentaire
+
+media_project_homepage:
+    path:     /
+    defaults: { _controller: MediaProjectBundle:Album:index }
