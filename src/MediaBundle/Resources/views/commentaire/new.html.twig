@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Commentaire creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="boutons">
+            <input class="btn btn-primary" type="submit" value="Ajouter" />
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Retour</a>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

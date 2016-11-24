@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Album edit</h1>
+
+    {{ form_start(edit_form) }}
+
+    <div class="row input-field">
+        {{ form_label(edit_form.titreAlbum) }}
+        {{ form_widget(edit_form.titreAlbum) }}
+        {{ form_errors(edit_form.titreAlbum) }}
+    </div>
+
+    <div class="row input-field">
+        {{ form_label(edit_form.artiste) }}
+        {{ form_widget(edit_form.artiste) }}
+        {{ form_errors(edit_form.artiste) }}
+    </div>
+
+    <div class="row input-field">
+        {{ form_label(edit_form.genre) }}
+        {{ form_widget(edit_form.genre) }}
+        {{ form_errors(edit_form.genre) }}
+    </div>
+
+    <div class="row input-field">
+        {{ form_label(edit_form.support) }}
+        {{ form_widget(edit_form.support) }}
+        {{ form_errors(edit_form.support) }}
+    </div>
+
+    <div class="row">
+        <div class="col l5 center">
+            <div class="imageupload">
+                <img src="{{ asset('uploads/images/') }}{{ album.image }}">
+            </div>
+        </div>
+
+        <div class="col l7 détails">
+
+            <div class="row input-field">
+                <label>Description de l'image</label>
+                {{ form_widget(edit_form.image.alt) }}
+                {{ form_errors(edit_form.image.alt) }}
+            </div>
+            <div class="row file-field input-field">
+                {{ form_label(edit_form.image.file) }}
+                {{ form_widget(edit_form.image.file) }}
+                {{ form_errors(edit_form.image.file) }}
+            </div>
+        </div>
+    </div>
+
+        {{ form_widget(edit_form) }}
+        <input  class="btn btn-primary"type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Back to the list</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-primary" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+
+    </div>
+{% endblock %}

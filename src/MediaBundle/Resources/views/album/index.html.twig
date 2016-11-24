@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Liste des albums</h1>
+
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Titre de l'album</th>
+                        <th>Artiste</th>
+                        <th>Genre</th>
+                        <th>Support</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for album in albums %}
+                    <tr></tr>
+                        <td><img class="img-rounded" src="{{ asset('uploads/images/') }}{{ album.image }}"></td>
+                        <td>{{ album.titreAlbum }}</td>
+                        <td>{{ album.artiste }}</td>
+                        <td>{{ album.genre }}</td>
+                        <td>{{ album.support }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('album_show', { 'id': album.id }) }}">Voir</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('album_edit', { 'id': album.id }) }}">Editer</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('commentaire_index', {'id' : album.id }) }}">Commentaire</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="boutons">
+            <a class="btn btn-primary" href="{{ path('album_new') }}">Créer un nouvel album</a>
+        </div>
+    </div>
+
+{% endblock %}

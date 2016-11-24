@@ -1,7 +1,7 @@
-MediaBundle\Entity\Avis:
+MediaBundle\Entity\Commentaire:
     type: entity
     table: null
-    repositoryClass: MediaBundle\Repository\AvisRepository
+    repositoryClass: MediaBundle\Repository\CommentaireRepository
     id:
         id:
             type: integer
@@ -9,17 +9,15 @@ MediaBundle\Entity\Avis:
             generator:
                 strategy: AUTO
     fields:
-        user:
+        utilisateur:
             type: string
             length: 255
         commentaire:
             type: text
-
+    lifecycleCallbacks: {  }
 
     manyToOne:
-        musiques:
-            targetEntity: MediaBundle\Entity\Musique
-            joinColumn:
-                onDelete: CASCADE
+        album:
+            targetEntity: MediaBundle\Entity\Album
+            inversedBy: commentaires
 
-    lifecycleCallbacks: {  }

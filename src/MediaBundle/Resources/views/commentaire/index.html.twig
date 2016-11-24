@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Liste des commentaires</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Commentaire</th>
+                <th>Album</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td><a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">{{ commentaire.id }}</a></td>
+                <td>{{ commentaire.utilisateur }}</td>
+                <td>{{ commentaire.commentaire }}</td>
+                <td><a href="{{ path('album_show', { 'id': commentaire.album.id }) }}">{{ commentaire.album }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">Voir</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a class="btn btn-primary" href="{{ path('commentaire_new') }}">Ajouter un nouveau commentaire</a>
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Retour à l'accueil</a>
+
+
+    </div>
+{% endblock %}

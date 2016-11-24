@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Album</h1>
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Titre de l'album</th>
+                    <td>{{ album.titreAlbum }}</td>
+                </tr>
+                <tr>
+                    <th>Artiste</th>
+                    <td>{{ album.artiste }}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{ album.genre }}</td>
+                </tr>
+                <tr>
+                    <th>Support</th>
+                    <td>{{ album.support }}</td>
+                </tr>
+                <tr>
+                    <th>Cover</th>
+                    <td><img class="img-rounded" src="{{ asset('uploads/images/') }}{{ album.image }}"></td>
+                </tr>
+                <tr>
+                    <th>Commentaires</th>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tbody>
+            {% for commentaire in commentaires %}
+                <tr>
+                    <td>{{ commentaire.utilisateur }}</td>
+                    <td>{{ commentaire.commentaire }}</td>
+                    {#<td><a href="{{ path('album_show', { 'id': commentaire.album.id }) }}">{{ commentaire.album }}</a></td>#}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div>
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Retour</a>
+            <a class="btn btn-primary" href="{{ path('album_edit', { 'id': album.id }) }}">Editer</a>
+            {{ form_start(delete_form) }}<input class="btn btn-primary" type="submit" value="Effacer">{{ form_end(delete_form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -3,11 +3,12 @@
 namespace MediaBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class MusiqueType extends AbstractType
+
+class AlbumType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,27 +16,27 @@ class MusiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
+            ->add('titreAlbum')
             ->add('artiste')
             ->add('genre', ChoiceType::class, array(
-                'placeholder' => 'Choississez un genre',
-                'choices' => array(
+                'choices'  => array(
+                    'Hip-Hop' => 'Hip-Hop',
                     'Soul' => 'Soul',
-                    'HipHop' => 'HiHop',
-                    'Rock' => 'Rock'
-                )
+                    'Rock' => 'Rock',
+                ),
             ))
             ->add('support', ChoiceType::class, array(
-                'placeholder' => 'Choississez un support',
-                'choices' => array(
+                'choices'  => array(
                     'Vinyl' => 'Vinyl',
                     'CD' => 'CD',
-                    'Cassette' => 'Cassette'
-                )
+                    'Cassette' => 'Cassette',
+                ),
             ))
-            ->add('file', 'file', array('label' => 'Image de couverture', 'required' => false));
+            ->add('image', ImageType::class)
+
         ;
     }
+
     
     /**
      * {@inheritdoc}
@@ -43,7 +44,7 @@ class MusiqueType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MediaBundle\Entity\Musique'
+            'data_class' => 'MediaBundle\Entity\Album'
         ));
     }
 
@@ -52,7 +53,7 @@ class MusiqueType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mediabundle_musique';
+        return 'mediabundle_album';
     }
 
 
