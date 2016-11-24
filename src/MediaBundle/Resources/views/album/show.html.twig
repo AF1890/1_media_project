@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titrealbum</th>
+                <td>{{ album.titreAlbum }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+    <br>
+    <h2>Commentaires</h2>
+    <table>
+        <tr><th>Utilisateur</th> <th>commentaire</th></tr>
+    {% for commentaire in commentaires %}
+        <tr>
+            <td> {{ commentaire.utilisateur }} </td>
+            <td> {{ commentaire.commentaire }} </td>
+        </tr>
+
+    {% endfor %}
+    </table>
+    <ul>
+        <li>
+            <a href="{{ path('_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('_edit', { 'id': album.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('commentaire_new' , { 'id': album.id}) }}">Nouveau commentaire</a>
+        </li>
+    </ul>
+{% endblock %}
