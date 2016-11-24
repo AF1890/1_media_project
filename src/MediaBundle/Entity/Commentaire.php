@@ -5,9 +5,9 @@ namespace MediaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Avis
+ * Commentaire
  */
-class Avis
+class Commentaire
 {
     /**
      * @var int
@@ -17,7 +17,7 @@ class Avis
     /**
      * @var string
      */
-    private $user;
+    private $utilisateur;
 
     /**
      * @var string
@@ -36,33 +36,33 @@ class Avis
     }
 
     /**
-     * Set user
+     * Set utilisateur
      *
-     * @param string $user
-     * @return Avis
+     * @param string $utilisateur
+     * @return Commentaire
      */
-    public function setUser($user)
+    public function setUtilisateur($utilisateur)
     {
-        $this->user = $user;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get utilisateur
      *
      * @return string 
      */
-    public function getUser()
+    public function getUtilisateur()
     {
-        return $this->user;
+        return $this->utilisateur;
     }
 
     /**
      * Set commentaire
      *
      * @param string $commentaire
-     * @return Avis
+     * @return Commentaire
      */
     public function setCommentaire($commentaire)
     {
@@ -79,5 +79,33 @@ class Avis
     public function getCommentaire()
     {
         return $this->commentaire;
+    }
+    /**
+     * @var \MediaBundle\Entity\Album
+     */
+    private $album;
+
+
+    /**
+     * Set album
+     *
+     * @param \MediaBundle\Entity\Album $album
+     * @return Commentaire
+     */
+    public function setAlbum(\MediaBundle\Entity\Album $album = null)
+    {
+        $this->album = $album;
+
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \MediaBundle\Entity\Album 
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }

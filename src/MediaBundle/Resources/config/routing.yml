@@ -1,3 +1,11 @@
-media_musique:
-    resource: "@MediaBundle/Resources/config/routing/musique.yml"
+media:
+    resource: "@MediaBundle/Resources/config/routing/album.yml"
     prefix:   /
+
+media_homepage:
+    path:     /media
+    defaults: { _controller: MediaBundle:Default:index }
+
+media_commentaire:
+        resource: "@MediaBundle/Resources/config/routing/commentaire.yml"
+        prefix:   /commentaire

@@ -1,0 +1,17 @@
+body {
+	background-color: deeppink;
+}
+body > ul {
+	background-color: saddlebrown;
+}
+table {
+	background-color: greenyellow;
+}
+/* Lignes impaires */
+table .row1 {
+	background-color: pink;
+}
+/* Lignes paires */
+table .row0 {
+	background-color: hotpink;
+}

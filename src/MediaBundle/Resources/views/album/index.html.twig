@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<!-- Compiled and minified Materialize CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	{{ parent() }}
+{% endblock stylesheets %}
+{% block body %}
+	<div class="fluid-container">
+		<div class="title center">
+    	<h1 class="row">Liste des Albums</h1>
+		{% if genre != null %}
+			<h2 class="row">[Genre = {{ genre }}]</h2>
+		{% endif %}
+		</div>
+		<div class="row">
+			<table class="col s12 m10 offset-m1 l8 offset-l2 center-align">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Titre de l'album</th>
+						<th>Artiste</th>
+						<th>Genre</th>
+						<th>Support</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% set i = 0 %}
+				{% for album in albums %}
+					{% set i = i + 1 %}
+					<tr class="row{{ i % 2 }}">
+						<td><a href="{{ path('_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
+						<td>{{ album.titreAlbum }}</td>
+						<td>{{ album.artiste }}</td>
+						<td>{{ album.genre }}</td>
+						<td>{{ album.support }}</td>
+						<td>
+							<ul>
+								<li>
+									<a href="{{ path('_show', { 'id': album.id }) }}">Afficher</a>
+								</li>
+								<li>
+									<a href="{{ path('_edit', { 'id': album.id }) }}">Modifier</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div> <!-- End of fluid-container -->
+	<ul>
+		<li>
+			<a href="{{ path('_new') }}">Créer un nouvel album</a>
+		</li>
+		<li>
+			<a href="{{ path('commentaire_index') }}">Aller voir la liste des commentaires</a>
+		</li>
+		<li>
+			Filtrer les albums par genre :
+			<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Sélectionner un genre</a>
+
+			<!-- Dropdown Structure -->
+			<ul id='dropdown1' class='dropdown-content'>
+				<li><a href="{{ path('_index') }}">Tous</a></li>
+				<li class="divider"></li>
+				<li><a href="{{ path('_index', { 'genre': 'hiphop'}) }}">Hiphop</a></li>
+				<li class="divider"></li>
+				<li><a href="{{ path('_index', { 'genre': 'soul'}) }}">Soul</a></li>
+				<li class="divider"></li>
+				<li><a href="{{ path('_index', { 'genre': 'rock'}) }}">Rock</a></li>
+			</ul>
+		</li>
+	</ul>
+{% endblock body %}
+{% block javascripts %}
+	<script
+		src="http://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script src="{{ asset("bundles/media/index_scripts.js") }}"></script>
+{% endblock javascripts %}

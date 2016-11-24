@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre de l'album</th>
+                <td>{{ album.titreAlbum }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if album.commentaires is not empty %}
+        <h3>Commentaires</h3>
+        <table>
+            <tbody>
+            {% set i = 0 %}
+            {% for commentaire in album.commentaires %}
+                {% set i = i + 1 %}
+                <tr class="row{{ i % 2 }}">
+                    <td><a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">{{ commentaire.id }}</a></td>
+                    <td>{{ commentaire.utilisateur }}</td>
+                    <td>{{ commentaire.commentaire }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">Afficher</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <ul>
+        <li>
+            <a href="{{ path('commentaire_new', { 'id': album.id }) }}">Lâche ton commentaire maggle !</a>
+        </li>
+        <li>
+            <a href="{{ path('_index') }}">Retour à l'index</a>
+        </li>
+        <li>
+            <a href="{{ path('_edit', { 'id': album.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
