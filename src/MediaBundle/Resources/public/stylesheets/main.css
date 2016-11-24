@@ -1,0 +1,77 @@
+/*
+Error: Undefined variable: "$font-body".
+        on line 2 of /var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/_index.scss
+        from line 2 of /var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/main.scss
+
+1: @import "_general.scss";
+2: @import "_index.scss";
+
+Backtrace:
+/var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/_index.scss:2
+/var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/main.scss:2
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/script/tree/variable.rb:49:in `_perform'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/script/tree/node.rb:50:in `perform'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:394:in `visit_prop'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `block in with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:430:in `block (2 levels) in visit_rule'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:430:in `map'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:430:in `block in visit_rule'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:428:in `visit_rule'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `block in with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:325:in `map'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:88:in `block in with_import'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:88:in `with_import'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `block in with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/stack.rb:79:in `with_base'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/tree/root_node.rb:20:in `render'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/engine.rb:278:in `render'
+/home/af1890/.rvm/gems/ruby-2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/home/af1890/.rvm/gems/ruby-2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/home/af1890/.rvm/gems/ruby-2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:209:in `each'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/home/af1890/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.16/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$font-body\".\A         on line 2 of /var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/_index.scss\A         from line 2 of /var/www/html/Aylin2/src/MediaBundle/Resources/public/sass/main.scss\A \A 1: @import \"_general.scss\";\A 2: @import \"_index.scss\";"; }
