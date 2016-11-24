@@ -5,8 +5,9 @@ namespace MediaBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class AvisType extends AbstractType
+class SelectType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,23 +15,24 @@ class AvisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', 'text', array(
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => "Si non renseigné, anonyme"
-                )
-            ))
-            ->add('commentaire', 'textarea', array(
-                'attr' => array('class' => 'materialize-textarea')
-            ));
+            ->add('genre', ChoiceType::class, array(
+                'choices'  => array(
+                	'Tous' => 'Tous',
+                    'Hiphop' =>  'Hiphop',
+                    'Soul' => 'Soul',
+                    'Rock' => 'Rock'),
+                'empty_value' => '-Selectionnez un genre-',
+                'empty_data' => null,
+                ));
     }
+    
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MediaBundle\Entity\Avis'
+            'data_class' => null
         ));
     }
 
@@ -39,7 +41,7 @@ class AvisType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mediabundle_avis';
+        return 'mediabundle_album';
     }
 
 

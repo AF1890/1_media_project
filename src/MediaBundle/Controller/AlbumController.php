@@ -1,0 +1,187 @@
+<?php
+
+namespace MediaBundle\Controller;
+
+use MediaBundle\Entity\Album;
+use MediaBundle\Entity\Commentaire;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Album controller.
+ *
+ */
+class AlbumController extends Controller
+{
+    /**
+     * Lists all album entities.
+     *
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm('MediaBundle\Form\SelectType');
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            if($form->get('genre')->getData() != 'Tous')
+            {
+                $albums = $em->getRepository('MediaBundle:Album')->findByGenre($form->get('genre')->getData());
+            }
+            else
+            {
+                $albums = $em->getRepository('MediaBundle:Album')->findAll();
+            }
+        }
+        else
+        {
+            $albums = $em->getRepository('MediaBundle:Album')->findAll();
+        }
+
+        return $this->render('album/index.html.twig', array(
+            'albums' => $albums,
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
+     * Creates a new album entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $album = new Album();
+        $form = $this->createForm('MediaBundle\Form\AlbumType', $album);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $couverture = $album->getCouverture();
+            $extension = $couverture->guessExtension();
+            $name = $album->getTitreAlbum().'.'.$extension;
+            $path = 'bundles/media/images/'.$name;
+            $couverture->move($this->getParameter('couvertures_directory'), $name);
+            $album->setCouverture($path);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($album);
+            $em->flush($album);
+
+            return $this->redirectToRoute('album_show', array('id' => $album->getId()));
+        }
+
+        return $this->render('album/new.html.twig', array(
+            'album' => $album,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a album entity.
+     *
+     */
+    public function showAction(Request $request, Album $album)
+    {
+
+        $commentaires = $album->getCommentaires();
+        $deleteForm = $this->createDeleteForm($album);
+
+        $commentaire = new Commentaire();
+        $form = $this->createForm('MediaBundle\Form\CommentaireType', $commentaire);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if($form->get('utilisateur')->getData() == null)
+                $commentaire->setUtilisateur('Anonyme');
+            $commentaire->setAlbum($album);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commentaire);
+            $em->flush($commentaire);
+            return $this->redirectToRoute('album_show', array('id' => $album->getId()));
+        }
+
+        return $this->render('album/show.html.twig', array(
+            'album' => $album,
+            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView(),
+            'commentaires' => $commentaires
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing album entity.
+     *
+     */
+    public function editAction(Request $request, Album $album)
+    {
+        $deleteForm = $this->createDeleteForm($album);
+        $editForm = $this->createForm('MediaBundle\Form\AlbumType', $album);
+        $editForm->handleRequest($request);
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $couverture = $album->getCouverture();
+            $extension = $couverture->guessExtension();
+            $name = $album->getTitreAlbum().'.'.$extension;
+            $path = 'bundles/media/images/'.$name;
+            $couverture->move($this->getParameter('couvertures_directory'), $name);
+            $album->setCouverture($path);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('album_edit', array('id' => $album->getId()));
+        }
+
+        return $this->render('album/edit.html.twig', array(
+            'album' => $album,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a album entity.
+     *
+     */
+    public function deleteAction(Request $request, Album $album)
+    {
+        $form = $this->createDeleteForm($album);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($album);
+            $em->flush($album);
+        }
+
+        return $this->redirectToRoute('album_index');
+    }
+
+    /**
+     * Creates a form to delete a album entity.
+     *
+     * @param Album $album The album entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Album $album)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('album_delete', array('id' => $album->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
+
+        /**
+     * Deletes a Commentaire entity.
+     *
+     */
+    public function deleteComAction(Request $request, Album $album,  Commentaire $commentaire)
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($commentaire);
+            $em->flush($commentaire);
+        return $this->redirectToRoute('album_show', array(
+            'id' => $album->getId()
+            ));
+    }
+
+}

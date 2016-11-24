@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titrealbum</th>
+                <td>{{ album.titreAlbum }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+            <tr>
+                <th>Couverture</th>
+                <td><img class="couv" src="{{ asset(album.couverture) }}" alt="couverture"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('album_index') }}">Back to the list</a>
+    <a href="{{ path('album_edit', { 'id': album.id }) }}">Edit</a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+    <p> Ajouter un commentaire </p>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Ajouter un commentaire">
+    {{ form_end(form) }}
+    <p class="title"> Liste des commentaires</p>
+    {% for commentaire in commentaires %}
+        <div class="com">
+            <p>De {{ commentaire.utilisateur }}</p>
+            <p class='content'>{{ commentaire.commentaire }}</p>
+            <a href="{{ path('commentaire_delete',{'commentaire' : commentaire.id, 'album': album.id}) }}">Effacer ce commentaire</a>
+        </div>
+    {% endfor %}
+{% endblock %}

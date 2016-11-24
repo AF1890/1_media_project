@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Albums list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre de l'album</th>
+                <th>Artiste</th>
+                <th>Genre</th>
+                <th>Support</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
+            <tr>
+                <td><a href="{{ path('album_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
+                <td>{{ album.titreAlbum }}</td>
+                <td>{{ album.artiste }}</td>
+                <td>{{ album.genre }}</td>
+                <td>{{ album.support }}</td>
+                <td>
+                    <a href="{{ path('album_show', { 'id': album.id }) }}">show</a>
+                    <a href="{{ path('album_edit', { 'id': album.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('album_new') }}">Create a new album</a>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Trouver les albums qui m'intéressent">
+    {{ form_end(form) }}
+
+{% endblock %}

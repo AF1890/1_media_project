@@ -1,0 +1,27 @@
+album_index:
+    path:     /
+    defaults: { _controller: "MediaBundle:Album:index" }
+    methods:  [GET, POST]
+
+album_show:
+    path:     /{id}/show
+    defaults: { _controller: "MediaBundle:Album:show" }
+
+album_new:
+    path:     /new
+    defaults: { _controller: "MediaBundle:Album:new" }
+    methods:  [GET, POST]
+
+album_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MediaBundle:Album:edit" }
+    methods:  [GET, POST]
+
+album_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MediaBundle:Album:delete" }
+    methods:  DELETE
+
+commentaire_delete:
+    path:     /{album}/{commentaire}/delete
+    defaults: { _controller: "MediaBundle:Album:deleteCom" }

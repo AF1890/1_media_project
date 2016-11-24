@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    couvertures_directory: '%kernel.root_dir%/../src/MediaBundle/Resources/public/images/'
 
 framework:
     #esi:             ~
