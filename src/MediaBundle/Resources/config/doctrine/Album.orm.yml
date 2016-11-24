@@ -1,7 +1,7 @@
-MediaBundle\Entity\Musique:
+MediaBundle\Entity\Album:
     type: entity
     table: null
-    repositoryClass: MediaBundle\Repository\MusiqueRepository
+    repositoryClass: MediaBundle\Repository\AlbumRepository
     id:
         id:
             type: integer
@@ -9,9 +9,10 @@ MediaBundle\Entity\Musique:
             generator:
                 strategy: AUTO
     fields:
-        titre:
+        titreAlbum:
             type: string
             length: 255
+            column: titre_album
         artiste:
             type: string
             length: 255
@@ -21,13 +22,5 @@ MediaBundle\Entity\Musique:
         support:
             type: string
             length: 255
-        image:
-            type: string
-            length: 255
 
-    lifecycleCallbacks:
-        prePersist: [ preUpload ]
-        preUpdate: [ preUpload ]
-        postPersist: [ upload ]
-        postUpdate: [ upload ]
-        postRemove: [ removeUpload ]
+    lifecycleCallbacks: {  }

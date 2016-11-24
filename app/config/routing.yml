@@ -1,3 +1,7 @@
-media:
+php app/console media:
     resource: "@MediaBundle/Resources/config/routing.yml"
     prefix:   /
+
+media_commentaire:
+        resource: "@MediaBundle/Resources/config/routing/commentaire.yml"
+        prefix:   /commentaire

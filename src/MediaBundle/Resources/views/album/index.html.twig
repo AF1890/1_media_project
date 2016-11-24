@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des albums</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre album</th>
+                <th>Artiste</th>
+                <th>Genre</th>
+                <th>Support</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
+            <tr>
+                <td>{{ album.titreAlbum }}</td>
+                <td>{{ album.artiste }}</td>
+                <td>{{ album.genre }}</td>
+                <td>{{ album.support }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': album.id }) }}">Voir</a>
+                            <a href="{{ path('_edit', { 'id': album.id }) }}">Editer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn-floating btn-large waves-effect waves-light" href="{{ path('_new') }}">Nouveau</a>
+        </li>
+    </ul>
+{% endblock %}
