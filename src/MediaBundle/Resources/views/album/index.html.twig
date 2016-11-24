@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1>Albums list</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre de l'album</th>
+                            <th>Artiste</th>
+                            <th>Genre</th>
+                            <th>Support</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for album in albums %}
+                        <tr>
+                            <td><a href="{{ path('album_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
+                            <td>{{ album.titreAlbum }}</td>
+                            <td>{{ album.artiste }}</td>
+                            <td>{{ album.genre }}</td>
+                            <td>{{ album.support }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('album_show', { 'id': album.id }) }}">montrer l'album</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('album_edit', { 'id': album.id }) }}">éditer l'album</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <a href="{{ path('album_new') }}">Créer un nouvel album</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

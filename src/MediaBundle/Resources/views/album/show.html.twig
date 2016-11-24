@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Album</h1>
+
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ album.id }}</td>
+                </tr>
+                <tr>
+                    <th>Titrealbum</th>
+                    <td>{{ album.titreAlbum }}</td>
+                </tr>
+                <tr>
+                    <th>Artiste</th>
+                    <td>{{ album.artiste }}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{ album.genre }}</td>
+                </tr>
+                <tr>
+                    <th>Support</th>
+                    <td>{{ album.support }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {#<div>#}
+        {#<table>#}
+            {#<tr>#}
+                {#<th>#}
+                    {#<td>{{ commentaire.utilisateur }}</td>#}
+                {#</th>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<td>#}
+                    {#{{ commentaire.commentaire }}#}
+                {#</td>#}
+            {#</tr>#}
+        {#</table>#}
+    {#</div>#}
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('album_index') }}">retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('album_edit', { 'id': album.id }) }}">Editer l'album</a>
+        </li>
+        <li>
+            <a href="{{ path('commentaire_index', { 'id': album.id }) }}">Voir les commentaires</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

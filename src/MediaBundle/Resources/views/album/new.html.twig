@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container center">
+        <div class="card teal center">
+            <h1 class="white-text">Ajouter un album :</h1>
+        </div>
+
+        {{ form_start(form) }}
+
+
+
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field">
+                    <label>Titre de l'album</label>
+                    {{ form_widget(form.titreAlbum) }}
+                    {{ form_errors(form.titreAlbum) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l4">
+                <label>Nom de l'artiste</label>
+                {{ form_widget(form.artiste) }}
+                {{ form_errors(form.artiste) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <label>Genre de musique</label>
+                {{ form_widget(form.genre) }}
+                {{ form_errors(form.genre) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <label>Type de support</label>
+                {{ form_widget(form.support) }}
+                {{ form_errors(form.support) }}
+            </div>
+        </div>
+
+        <div class="row center">
+            <input class="waves-effect waves-light btn" type="submit" value="create" />
+            <a href="{{ path('album_index') }}" class="waves-effect waves-light btn">Retour a la Liste</a>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
